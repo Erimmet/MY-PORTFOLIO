@@ -782,3 +782,144 @@
                 padding: 15px;
             }
         }
+
+/* UPDATE */
+/* Projects grid & card basics */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  align-items: stretch;
+  margin-top: 24px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image area - keeps images from stretching layout */
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* preserves card shape */
+  display: block;
+}
+
+/* overlay button */
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 12px;
+  pointer-events: none;
+}
+.project-image-overlay .view-gallery-btn {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Project info grows to keep consistent card heights */
+.project-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+/* Modal / gallery styles */
+.gallery-modal {
+  display: none; /* shown via JS */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1200;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.gallery-modal .modal-content {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+/* main image */
+.gallery-main-image {
+  width: 100%;
+  max-height: 460px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.gallery-main-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 460px;
+  display: block;
+}
+
+/* thumbnails row */
+.gallery-thumbnails {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.gallery-thumbnail {
+  width: 100px;
+  height: 64px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  flex: 0 0 auto;
+  border: 2px solid transparent;
+}
+
+.gallery-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-thumbnail.active {
+  border-color: #007bff;
+}
+
+/* close button */
+.close-modal {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  float: right;
+  cursor: pointer;
+}
